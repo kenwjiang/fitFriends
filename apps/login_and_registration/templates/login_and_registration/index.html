@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    {% load static %}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="{% static 'login_and_registration/css/style.css' %}">
+    <style>
+      .form-group{
+        margin: 4% 0;
+      }
+
+    </style>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+
+    </script>
+  </head>
+  <body>
+    <!-- LOGIN FORM -->
+    <div class="text-center" style="padding:20px 0">
+      <div id='login-logo' class="logo">login</div>
+        <div class="login_errors"></div>
+        {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == 'no_match error' %}
+              <p class="error">{{ message }}</p>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == 'email_login error' %}
+              <p class="error">{{ message }}</p>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+
+        {% if messages %}
+          {% for message in messages %}
+            {% if message.tags == 'password_login error' %}
+              <p class="error">{{ message }}</p>
+            {% endif %}
+          {% endfor %}
+        {% endif %}
+    	<!-- Main Form -->
+    	<div class="login-form-1">
+    		<form id="login-form" class="text-left" action="/login/login" method="post">
+          {% csrf_token %}
+    			<div class="login-form-main-message"></div>
+    			<div class="main-login-form">
+    				<div class="login-group">
+    					<div class="form-group">
+    						<label id=login-email'' class="sr-only">email</label>
+    						<input type="text" class="form-control" name="log-email" placeholder="email">
+    					</div>
+    					<div class="form-group">
+    						<label id='login-pw' class="sr-only">Password</label>
+    						<input type="password" class="form-control"  name="current-password" placeholder="password">
+    					</div>
+    				</div>
+    				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+    			</div>
+    			<div class="etc-login-form">
+    			</div>
+    		</form>
+    	</div>
+    	<!-- end:Main Form -->
+    </div>
+
+
+    <!-- REGISTRATION FORM -->
+    <div class="text-center" style="padding:25px 0">
+    	<div id='reg-logo' class="logo">register</div>
+      <div id="register-errors">
+        {% block content %}
+        {% endblock %}
+      </div>
+    	<!-- Main Form -->
+    	<div class="login-form-1">
+    		<form id="register-form" class="text-left" action="/login/create" method="post">
+          {%csrf_token%}
+    			<div class="login-form-main-message"></div>
+    			<div class="main-login-form">
+    				<div class="login-group">
+              <div class="form-group">
+                <label class="sr-only">First Name</label>
+                <input type="text" id='fname' class="form-control" name="first_name" placeholder="first name">
+              </div>
+              <div class="form-group">
+                <label class="sr-only">Last Name</label>
+                <input id='lname' type="text" class="form-control" name="last_name" placeholder="last name">
+              </div>
+              <div class="form-group">
+                 Date of Birth<input type="date" class="form-control" name="dob" placeholder="date of birth">
+              </div>
+
+    					<div class="form-group">
+    						<label class="sr-only">Email address</label>
+    						<input id='reg-email' type="text" class="form-control" name="email" placeholder="email">
+    					</div>
+
+              <div class="form-group login-group-checkbox">
+                <input type="radio" name="reg_gender" value="male">
+                <label for="male">male</label>
+
+                <input type="radio" name="reg_gender" value="female">
+                <label for="female">female</label>
+              </div>
+    					<div class="form-group">
+    						<label class="sr-only">Password</label>
+    						<input id='reg-pw' type="password" class="form-control" name="reg-password" placeholder="password">
+    					</div>
+    					<div class="form-group">
+    						<label class="sr-only">Password Confirm</label>
+    						<input id='pw-conf' type="password" class="form-control"  name="pw_confirm" placeholder="confirm password">
+    					</div>
+    				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
+    			</div>
+    			<div class="etc-login-form">
+    			</div>
+    		</form>
+    	</div>
+    	<!-- end:Main Form -->
+    </div>
+
+  <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
+  <script src="{% static 'login_and_registration/js/script.js' %}"></script>
+
+  </body>
+</html>

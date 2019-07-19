@@ -1,0 +1,55 @@
+{% extends 'finder_app/gym_base.html' %}
+
+
+{% block content %}
+
+  <h2>{{name}}</h2>
+  <img src="#" alt="">
+  <p>{{address}}</p>
+  {% if default == False %}
+  <form id='gym_default' action="/gym/{{place_id}}/set" method="post">
+    {%csrf_token%}
+    <input type="submit" class='btn btn-primary' value="Set Default Gym"></input>
+  </form>
+
+  <h5><span style="color: red">You must set this gym as default to view other members!</span></h5>
+  {% else %}
+  <p><span style="color:green">This is your default gym</span></p>
+  <h5>Here are some of the people that go to your gym: </h5>
+  {%for member in members%}
+  {% if member.id != request.session.user_id%}
+  <div class="user_card col-sm-4">
+    <h5>{{member.first_name.capitalize}}</h5>
+    {% for user_pref in pref_info %}
+      {% if user_pref.userPref_id == member.id %}
+      <p>{{user_pref.categories}}</p>
+      {%endif%}
+    {% endfor %}
+    <a href="#collapse{{member.id}}" class='btn btn-primary' data-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample">Click to show Schedule</a>
+    <table id='collapse{{member.id}}' class='table collapse'>
+      <thead class="thead-dark">
+        <tr>
+          <th>M</th>
+          <th>Tu</th>
+          <th>W</th>
+          <th>Th</th>
+          <th>F</th>
+          <th>Sa</th>
+          <th>Su</th>
+        </tr>
+      </thead>
+      <tr>
+        <td>2PM - 4PM</td>
+        <td>2PM - 4PM</td>
+        <td>2PM - 4PM</td>
+        <td>2PM - 4PM</td>
+        <td>2PM - 4PM</td>
+        <td>REST</td>
+        <td>REST</td>
+      </tr>
+    </table>
+  </div>
+      {%endif%}
+    {%endfor%}
+  {%endif%}
+{% endblock %}

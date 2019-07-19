@@ -1,0 +1,79 @@
+
+#content-wrapper{
+  margin: 2%;
+  text-align: center;
+  color: white;
+}
+.table{
+  text-align: middle;
+  width: 10%;
+}
+#content-wrapper h2{
+  margin-top: 5%;
+}
+#content-wrapper h5{
+  margin-top: 2%;
+}
+.workoutGoals{
+  margin: 2%;
+  width: 40%;
+  margin: 0 auto;
+  text-align: left;
+}
+.workoutGoals h3{
+  margin: 4%;
+}
+.genderPref, button {
+  margin-left: 5%;
+  margin-bottom: 3%;
+}
+.genPrefSelect h4{
+  margin: 5%;
+}
+.user_card{
+  width: 35%;
+  display: inline-block;
+  margin: 2% 3%;
+
+}
+.greet{
+  color: white;
+  margin-left: 10%;
+}
+.set_schedule{
+  width: 80%;
+  margin: 0 auto;
+}
+nav{
+  box-shadow:3px 3px 5px 6px #ccc;
+  margin-bottom: 3px;
+}
+nav a, a:hover, a:visited, a:active{
+  text-decoration: none;
+  color: white;
+}
+
+.sidebar{
+  box-shadow:0px 3px 5px 6px #ccc
+}
+
+.nav-item{
+  margin-top: 6px;
+}
+
+.nav-item span{
+  color: white;
+}
+
+table td {
+  color: white;
+}
+.dashboard-container {
+  margin: 2%;
+}
+.dashboard-container a {
+  color: red;
+}
+.dashboard-container h4{
+  padding: 2%;
+}

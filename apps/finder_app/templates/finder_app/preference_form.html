@@ -1,0 +1,61 @@
+{% extends 'finder_app/gym_base.html' %}
+
+{% block content %}
+<form id='goals' action="/preference/submit" method="post">
+  {% csrf_token %}
+  <h2>Please Fill Out Your Workout Schedule for the Week</h2>
+  <table class='set_schedule'>
+    <tr>
+      <th>M</th><th>Tu</th><th>W</th> <th>Th</th><th>F</th><th>Sa</th><th>Su</th>
+    </tr>
+    <tr>
+      <td>
+        <input type="time" id="time" data-format="HH:mm" data-template="HH : mm" name="monTime">
+      </td>
+      <td>
+        <input type="time" id="time" data-format="HH:mm" data-template="HH : mm" name="tuesTime">
+      </td>
+      <td>
+        <input type="time" id="time" data-format="HH:mm" data-template="HH : mm" name="wedTime">
+      </td>
+      <td>
+        <input type="time" id="time" data-format="HH:mm" data-template="HH : mm" name="thuTime">
+      </td>
+      <td>
+        <input type="time" id="time" data-format="HH:mm" data-template="HH : mm" name="friTime">
+      </td>
+      <td>
+        <input type="time" id="time" data-format="HH:mm" data-template="HH : mm" name="satTime">
+      </td>
+      <td>
+        <input type="time" id="time" data-format="HH:mm" data-template="HH : mm" name="sunTime">
+      </td>
+    </tr>
+  </table>
+
+
+  <div class="workoutGoals">
+    <h3>What are your workout goals?</h3>
+      <p>(Select one more more options)</p>
+        <input type="checkbox" name="categories" value="weight_loss"> Weight Loss<br>
+        <input type="checkbox" name="categories" value="cardio">Cardiovascular Fitness<br>
+        <input type="checkbox" name="categories" value="endurance">Endurance<br>
+        <input type="checkbox" name="categories" value="flexibility">Flexibility<br>
+        <input type="checkbox" name="categories" value="strength">Strength Training<br>
+        <input type="checkbox" name="categories" value="muscle">Building Muscle<br>
+        <input type="checkbox" name="categories" value="genFit">General Health (includes getting toned)<br>
+  <div class="genPrefSelect">
+    <h4>fitFriend Gender Preference?</h4>
+    <select class="genderPref" name='genderPref'>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="None">No Preference</option>
+    </select>
+  </div>
+  <button type="submit" class='btn btn-primary' name="button">Submit</button>
+  <button type="reset" class='btn btn-danger' name="button">Reset</button>
+</form>
+{% endblock %}
+
+{% block extra_js %}
+{% endblock %}

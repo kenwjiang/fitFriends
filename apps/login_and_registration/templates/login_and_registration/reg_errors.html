@@ -1,0 +1,52 @@
+{% extends 'login_and_registration/index.html' %}
+
+{% block content %}
+{% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'first_name error' %}
+      <p class="error">{{ message }}</p>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'last_name error' %}
+      <p class="error">{{ message }}</p>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'birthday error' %}
+      <p class="error">{{ message }}</p>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'email_reg error' %}
+      <p class="error">{{ message }}</p>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'pw error' %}
+      <p class="error">{{ message }}</p>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% if messages %}
+  {% for message in messages %}
+    {% if message.tags == 'pw_confirm error' %}
+      <p class="error">{{ message }}</p>
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+{% endblock %}
